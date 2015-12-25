@@ -22,13 +22,13 @@ def get_args():
    """
     parser = argparse.ArgumentParser(
             description='Process args for retrieving all the Virtual Machines')
-    parser.add_argument('-s', '--host', required=False, default='172.17.9.52', action='store',
+    parser.add_argument('-s', '--host', required=False, default='172.17.11.74', action='store',
                         help='Remote host to connect to')
     parser.add_argument('-o', '--port', type=int, default=443, action='store',
                         help='Port to connect on')
     parser.add_argument('-u', '--user', required=False, default='root', action='store',
                         help='User name to use when connecting to host')
-    parser.add_argument('-p', '--password', required=False, default='sk35alu!65DC', action='store',
+    parser.add_argument('-p', '--password', required=False, default='alcatel', action='store',
                         help='Password to use when connecting to host')
     args = parser.parse_args()
     return args
@@ -100,7 +100,7 @@ def main():
 
     content = si.RetrieveContent()
     for child in content.rootFolder.childEntity:
-        if hasattr(child, 'vm_folder'):
+        if hasattr(child, 'vm_folder') or hasattr(child, 'vmFolder'):
             datacenter = child
             vm_folder = datacenter.vmFolder
             vm_list = vm_folder.childEntity
