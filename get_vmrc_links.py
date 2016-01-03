@@ -2,7 +2,7 @@
 
 
 """
-Python program for listing the vms on an ESX / vCenter host with direct Virtual Machine Remote Console (vmrc)
+Python program for listing the VMs on an ESXi / vCenter host with direct Virtual Machine Remote Console (vmrc)
 links
 """
 
@@ -28,7 +28,7 @@ def get_args():
                         help='Port to connect on')
     parser.add_argument('-u', '--user', required=False, default='root', action='store',
                         help='User name to use when connecting to host')
-    parser.add_argument('-p', '--password', required=False, default='alcatel', action='store',
+    parser.add_argument('-p', '--password', required=False, default='your_passwd', action='store',
                         help='Password to use when connecting to host')
     args = parser.parse_args()
     return args
